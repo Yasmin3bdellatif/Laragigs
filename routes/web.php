@@ -60,6 +60,10 @@ Route::put('/listings/{listing}', [ListingController::class, 'update'])
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])
     ->middleware('auth');
 
+//Manage Listings
+Route::get('/listings/manage', [ListingController::class, 'manage'])
+    ->middleware('auth');
+
 //single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
@@ -82,3 +86,5 @@ Route::get('/login', [UserController::class, 'login'])
 //log in user
 Route::post('/users/login/authenticate', [UserController::class, 'authenticate'])
     ->name('users.authenticate');
+
+
